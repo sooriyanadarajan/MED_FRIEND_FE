@@ -15,15 +15,33 @@
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form [formGroup]="SignUp" (ngSubmit)="Signup()">
+    <form [formGroup]="SignUp">
         <h3>Sign Up Here</h3>
+    <div *ngIf="showDiv2">
+        <label for="username">UserName</label>
+        <input type="text" formControlName="name" placeholder="UserName" id="name">
 
-        <label for="username">Username</label>
-        <input type="text" formControlName="email" placeholder="Email" id="username">
+        <label for="username">Mobile</label>
+        <input type="text" formControlName="mobileNum" placeholder="Number" id="nuber">
 
+        <label for="username">Email</label>
+        <input type="text" formControlName="email" placeholder="Email" id="email">
+
+        <img class="next-imageH" (click)="Show()" src="../../../../assets/img/arrow.png">
+    </div>
+    <div *ngIf="showDiv">
+  
         <label for="password">Password</label>
         <input type="password" formControlName="password" placeholder="Password" id="password">
-        <button class="signup">Sign Up</button>
+
+        <label for="password">Confirm Password</label>
+        <input type="password" formControlName="confirmPassword" placeholder="Password" id="password">
+
+        <button class="signup" (click)="Signup()">Sign Up</button>
+
+        <h2 (click)="Show2()">Back</h2>
+    </div>
     </form>
+    
 </body>
 </html>

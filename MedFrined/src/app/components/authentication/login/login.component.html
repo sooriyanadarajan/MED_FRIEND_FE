@@ -15,7 +15,7 @@
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form >
+    <form [formGroup]="signinForm"  >
         <h3>Log In Here</h3>
 
         <label for="username">Username</label>
@@ -23,8 +23,8 @@
 
         <label for="password">Password</label>
         <input type="password" formControlName="password" placeholder="Password" id="password">
-
-        <button class="signup">Log In</button>
+        <a routerLink="/auth/generate" class="login-form-forgot">Forgot password?</a>
+        <button class="signup" (click)="SignIn()">Log In</button>
         
     </form>
 </body>
