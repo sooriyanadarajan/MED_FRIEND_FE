@@ -1,0 +1,115 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 300px;
+    margin: 20px;
+    display: inline-block;
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .card-content {
+    padding: 10px;
+  }
+  
+  .card-content h3 {
+    margin-top: 0;
+  }
+  
+  .btn {
+    display: block;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+  }
+  .img_fix{
+    height: 230px !important;
+  }
+  .doctors_cards{
+    margin-left: 70px;
+  }
+  .bookdate{
+    width: 100%;
+    height: 40px;
+}
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -5px;
+  margin-left: -5px;
+}
+
+.form-group {
+  padding-right: 5px;
+  padding-left: 5px;
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.form-group .ant-picker {
+  width: 100%;
+}
+
+.ant-modal-body {
+  padding: 0;
+}
+////Time Buttons
+.time-picker {
+  display: flex;
+  flex-direction: column;
+}
+
+.time-picker-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.time-picker-button {
+  font-size: 14px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+}
+
+.time-picker-button.selected {
+  background-color: #1890ff;
+  color: #fff;
+}
+
+/* Customize the Ant Design time picker styles */
+.ant-time-picker {
+  width: 100%;
+}
+
+.ant-time-picker-panel-select {
+  width: 50%;
+  margin-right: 8px;
+}
+
+.ant-time-picker-panel-select:last-child {
+  margin-right: 0;
+}
+.time-picker-button.Bselected {
+  background-color: #1890ff;
+  color: #fff;
+}
+.date_timemargin{
+  margin-top: 10px;
+  margin-left: 6px;
+}
+
+
+
+  
+  

@@ -1,7 +1,7 @@
 import { Component,TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
 import {HttpService} from '../HttpService';
-import {AuthSerice} from "../auth.service"
+import {AuthSerice} from "../auth.service";
 import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({

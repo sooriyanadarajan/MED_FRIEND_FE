@@ -6,7 +6,15 @@ import { Constant } from './Contents';
 export class HttpService {
   
   constructor(private http: HttpClient) { }
-  
+  getToken() {
+    // return this.cookie.get('token');
+    return localStorage.getItem('isLoggedIn')
+  }
+
+  isLoggednIn() {
+    const result = this.getToken();
+    return (result == '' || result == null ? false : true);
+  }
   signUp(value:any) {
     return this.http.post<HttpService>(Constant.signUp, value);
   }
@@ -18,6 +26,9 @@ export class HttpService {
   }
   getprofile(){
     return this.http.get(Constant.profile);
+  }
+  getdoctor(val:any){
+    return this.http.post(Constant.doctorDetails, val);
   }
 //   recoverPassword(val: any) {
 //     return this.http.post(Constant.recoverPassword, val);

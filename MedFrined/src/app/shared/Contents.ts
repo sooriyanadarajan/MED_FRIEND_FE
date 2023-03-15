@@ -18,5 +18,5 @@ export const Constant={
     //    //ResetPassword
     //  resetPassword:"http://localhost:4000/passwordReset/",
 
-    //  doctorDetails:"http://localhost:4000/doctorDetails",
+     doctorDetails:"http://localhost:7753/doctor/list",
 } 

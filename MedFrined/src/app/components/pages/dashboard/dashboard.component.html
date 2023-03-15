@@ -1,1 +1,57 @@
-<p>dashboard works!</p>
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body class="Dash_back">
+
+    <div class="cardscenter">
+        <h2>Dashboard</h2>
+        <div class="card1">
+          <div class="card_text">
+            <h3 class="name_text">Welcome {{ getname ? (getname.name | titlecase) : '0' }}</h3>
+            <h3>Email</h3>
+            <h3 class="email_text">{{ getname ? getname.email  : '0' }}</h3>
+            <h3>Phone</h3>
+            <h3 class="email_text">{{ getname ? getname.mobileNum  : '0' }}</h3>
+            <!-- <h3>Phone</h3>
+            <h3 class="email_text">{{ getname ? getname.mobileNum  : '0' }}</h3> -->
+          </div>
+        </div>
+        <div class="card2" >
+          <div class="card_text">
+            <h3 class="name_appointment">Upcoming Appointments</h3>
+            <table class="table_margin">
+              <thead>
+                <tr>
+                  <th>Column 1</th>
+                  <th>Column 2</th>
+                  <th>Column 3</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Row 1, Column 1</td>
+                  <td>Row 1, Column 2</td>
+                  <td>Row 1, Column 3</td>
+                </tr>
+                <tr>
+                  <td>Row 2, Column 1</td>
+                  <td>Row 2, Column 2</td>
+                  <td>Row 2, Column 3</td>
+                </tr>
+                <tr>
+                  <td>Row 2, Column 1</td>
+                  <td>Row 2, Column 2</td>
+                  <td>Row 2, Column 3</td>
+                </tr>
+              </tbody>
+            </table>
+            
+          </div>
+        </div>
+    </div>
+      
+
+</body>
+</html>
+
