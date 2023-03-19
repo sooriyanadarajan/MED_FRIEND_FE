@@ -5,67 +5,37 @@
       <h3>Cardiologist</h3>
       <p>Cardiology Consultation</p>
     </div>
-    <a class="btn">Book Appointment</a>
-    <!-- <button class="btn" nz-button nzType="primary" (click)="openModal()">Open Modal</button> -->
-  </div>
-  <div class="card">
-    <img class="img_fix" src="../../../../assets/img/IMG_20230313_200550.jpg" alt="Image">
-    <div class="card-content">
-      <h3>Psychologist</h3>
-      <p>Card description goes here</p>
-    </div>
     <a class="btn" (click)="showModal()">Book Appointment</a>
-  </div>
-  <div class="card">
-    <img class="img_fix" src="../../../../assets/img/IMG-20230313-WA0003.jpg" alt="Image">
-    <div class="card-content">
-      <h3>Physio</h3>
-      <p>Card description goes here</p>
-    </div>
-    <a href="#" class="btn">Book Appointment</a>
-  </div>
-  <div class="card">
-    <img class="img_fix" src="../../../../assets/img/1678753926777.jpg" alt="Image">
-    <div class="card-content">
-      <h3>Feminist</h3>
-      <p>Card description goes here</p>
-    </div>
-    <a href="#" class="btn">Book Appointment</a>
-  </div>
-  <div class="card">
-    <img class="img_fix" src="../../../../assets/img/IMG-20230313-WA0012.jpg" alt="Image">
-    <div class="card-content">
-      <h3>Neurologist</h3>
-      <p>Card description goes here</p>
-    </div>
-    <a href="#" class="btn">Book Appointment</a>
   </div>
 </div>
 
 
 
 
-<nz-modal [(nzVisible)]="isVisible" nzTitle="Book Appointment" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
-  <ng-container *nzModalContent>
-    <div class="form-row">
-      <div class="form-group col-md-6 ">
-        <nz-date-picker class="bookdate" formControlName="dob" format="mm/dd/yyyy"></nz-date-picker>
-      </div>
-      <!-- <div class="form-group col-md-6">
-        <nz-time-picker [(ngModel)]="selectedTime" [nzFormat]="'HH:mm'" [nzMinuteStep]="30" [nzHideDisabledOptions]="true"></nz-time-picker>
-      </div> -->
-      <div class="date_timemargin">
-        <div class="time-picker">
-          <div class="time-picker-buttons">
-            <button class="time-picker-button" *ngFor="let time of times" (click)="selectTime(time)"
-              [class.selected]="isSelected(time)">
-              {{ time }}
-            </button>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Book Appointment" (nzOnCancel)="handleCancel()" (nzOnOk)="SubitSlot()">
+  <form nz-form [formGroup]="slotbooking">
+    <nz-form-item>
+      <nz-form-control >
+        <ng-container *nzModalContent>
+          <div class="form-row">
+            <div class="form-group col-md-6 ">
+              <nz-date-picker class="bookdate" formControlName="slot" format="mm/dd/yyyy"></nz-date-picker>
+            </div>
+            <div class="date_timemargin">
+              <div class="time-picker">
+                <div class="time-picker-buttons">
+                  <button class="time-picker-button" *ngFor="let time of times" (click)="selectTime(time)"
+                    [class.selected]="isSelected(time)">
+                    {{ time }}
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-
-    </div>
-  </ng-container>
-
+        </ng-container>
+      </nz-form-control>
+    </nz-form-item>  
+    <button (click)="SubitSlot()">Book Slot</button>
+  </form>
+ 
 </nz-modal>

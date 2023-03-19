@@ -1,6 +1,10 @@
-import { Component,ViewChild } from '@angular/core';
+import { Component,ViewChild ,TemplateRef} from '@angular/core';
 import { NzTimePickerComponent } from 'ng-zorro-antd/time-picker';
-import { AuthSerice } from '../../../shared/auth.service'
+import { NzMessageService } from 'ng-zorro-antd/message';
+import { FormControl, FormGroup, Validators,FormBuilder} from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthSerice } from '../../../shared/auth.service';
+import {HttpService} from '../../../shared/HttpService';
 
 @Component({
   selector: 'app-doctorappointment',
@@ -8,27 +12,35 @@ import { AuthSerice } from '../../../shared/auth.service'
   styleUrls: ['./doctorappointment.component.scss']
 })
 export class DoctorappointmentComponent {
-  @ViewChild('timePicker') timePicker!: NzTimePickerComponent;
-  constructor(private auth:AuthSerice) { }
+  // @ViewChild('timePicker') timePicker!: NzTimePickerComponent;
+  @ViewChild('timePicker', { static: false }) timePicker!: NzTimePickerComponent;
+
+  constructor(private auth:AuthSerice,private http:HttpService,private formBuilder: FormBuilder,private router: Router,private message:NzMessageService) { 
+    //slotbooking
+  this.slotbooking = this.formBuilder.group({
+    
+    slot: new FormControl('', [Validators.required])
+  });
+  }
   
-  
+  slotbooking: FormGroup;
   isVisible = false;
   dateFormat = 'yyyy/MM/dd';
   selectedDate:any
   selectedTime:any
 
   public hasOpenedTimePicker = false;
-  pageIndex = 1;
-  pageSize = 10;
+  
   
   ngOnInit(): void {
-    // this.DoctorList(this.pageIndex,this.pageSize)
+    this.GetDoctor();
     // Manually trigger a change event on the time picker to fix the default minutes value issue
-    if (!this.hasOpenedTimePicker) {
+    if (this.timePicker) {
       this.timePicker.writeValue(this.selectedTime);
       this.hasOpenedTimePicker = true;
     }
   }
+  
 
   showModal(): void {
     this.isVisible = true;
@@ -37,6 +49,7 @@ export class DoctorappointmentComponent {
   handleOk(): void {
     console.log('Button ok clicked!');
     this.isVisible = false;
+    this.SubitSlot()
   }
 
   handleCancel(): void {
@@ -73,31 +86,37 @@ export class DoctorappointmentComponent {
   public isSelected(time: string): boolean {
     return time === this.selectedTime;
   }
-  // DoctorList(index,size){
-  //    let val = {
-  //     page : index,
-  //     limit : size
-  //    }
-  // }
-// getPaymentHistory(index, size) {
-//     this.isTableLoading = true;
-//     let val = {
-//       page: index,
-//       limit: size,
-//       key:this.searchTxt == ''?null:this.searchTxt
-//     }
-//     Object.keys(val).forEach((key) => (val[key] == null ) && delete val[key]);
-//     this.payment.listPaymentHistory(val).subscribe((res) => {
-//       if (res['success']) {
-//         this.paymentHistory = res['data']['list'];
-//         this.paymentHistoryCount = res['data']['count'];
-//         this.isTableLoading = false
-//       }else{
-//         this.isTableLoading = false
-//       }
-//     }, error => {
-//       this.notify.error(error.error.message);
-//       this.isTableLoading = false
-//     })
-//   }
+  doctordata:any
+  GetDoctor(){
+    this.http.getdoctor().subscribe((res:any)=>{
+      if(res.success){
+      this.doctordata= res['data'];
+      console.log(this.doctordata)
+      }
+    })
+  }
+  SubitSlot(){
+    let val={
+      slot:this.slotbooking.value.slot,
+    }
+    console.log(this.slotbooking)
+    this.http.slotbook(val).subscribe((res:any)=>{
+      if(res.success){
+        console.log(this.slotbooking)
+        // this.auth.isLoggedIn=true;
+        // this.router.navigate(['/dashboard']);
+        // res['success'] && this.message.success(res['message']);
+        this.slotbooking.reset();
+      }
+      else{
+        // this.auth.isLoggedIn=false;
+        // this.router.navigate(['/auth/login']);
+        console.log(this.slotbooking)
+      }
+    },(error: { error: { message: string | TemplateRef<void>; }; }) => {
+      this.message.error(error.error.message);
+    });
+    console.log(this.slotbooking)
+  }
+ 
 }

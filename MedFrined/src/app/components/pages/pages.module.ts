@@ -6,7 +6,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DoctorappointmentComponent } from './doctorappointment/doctorappointment.component';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-import { NgZorroAntdModule } from '../../ng-zorro-antd.module'
+import { NgZorroAntdModule } from '../../ng-zorro-antd.module';
+import { NzTimePickerModule } from 'ng-zorro-antd/time-picker';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +18,7 @@ import { NgZorroAntdModule } from '../../ng-zorro-antd.module'
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule,NzModalModule, NzButtonModule,NgZorroAntdModule
+    PagesRoutingModule,NzModalModule, NzButtonModule,NgZorroAntdModule,NzTimePickerModule,ReactiveFormsModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

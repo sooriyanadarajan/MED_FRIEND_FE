@@ -34,14 +34,14 @@ export class LoginComponent {
   
     this.http.logIn(val).subscribe((res:any)=>{
       if(res.success){
-        this.auth.isLoggedIn=true;
+        // this.auth.isLoggedIn=true;
         this.router.navigate(['/dashboard']);
         res['success'] && this.message.success(res['message']);
         this.signinForm.reset();
       }
       else{
-        this.auth.isLoggedIn=false;
-        this.router.navigate(['/auth/signup']);
+        // this.auth.isLoggedIn=false;
+        this.router.navigate(['/auth/login']);
       }
     },(error: { error: { message: string | TemplateRef<void>; }; }) => {
       this.message.error(error.error.message);

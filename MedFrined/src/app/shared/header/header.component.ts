@@ -16,7 +16,7 @@ export class HeaderComponent {
   Logout(){
 this.http.logout().subscribe((res:any)=>{
   if(res.success){
-    this.auth.isLoggedIn=true;
+    // this.auth.isLoggedIn=true;
     this.router.navigate(['/auth/login']);
     res['success'] && this.message.success(res['message']);
   }

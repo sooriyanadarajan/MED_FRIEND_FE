@@ -19,4 +19,5 @@ export const Constant={
     //  resetPassword:"http://localhost:4000/passwordReset/",
 
      doctorDetails:"http://localhost:7753/doctor/list",
+     slot:"http://localhost:7753/slotbook"
 } 

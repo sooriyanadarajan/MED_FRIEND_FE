@@ -27,8 +27,11 @@ export class HttpService {
   getprofile(){
     return this.http.get(Constant.profile);
   }
-  getdoctor(val:any){
-    return this.http.post(Constant.doctorDetails, val);
+  getdoctor(){
+    return this.http.get(Constant.doctorDetails);
+  }
+  slotbook(val:any){
+    return this.http.post(Constant.slot, val);
   }
 //   recoverPassword(val: any) {
 //     return this.http.post(Constant.recoverPassword, val);

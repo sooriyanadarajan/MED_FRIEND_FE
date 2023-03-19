@@ -34,12 +34,12 @@ export class GenerateotpComponent {
   
     this.http.logIn(val).subscribe((res:any)=>{
       if(res.success){
-        this.auth.isLoggedIn=true;
+        // this.auth.isLoggedIn=true;
         res['success'] && this.message.success(res['message']);
         this.signinForm.reset();
       }
       else{
-        this.auth.isLoggedIn=false;
+        // this.auth.isLoggedIn=false;
         this.router.navigate(['/auth/forgot']);
       }
     },(error: { error: { message: string | TemplateRef<void>; }; }) => {
