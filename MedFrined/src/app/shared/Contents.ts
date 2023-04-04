@@ -6,7 +6,10 @@ export const Constant={
 
      //Login
      login:"http://localhost:7753/logIn",
-
+     //otp
+     otp:"http://localhost:7753/forgotPassword",
+     //verifyotp
+     verifyotp:"http://localhost:7753/verifyPassword",
      //logout
      logout:"http://localhost:7753/logOut",
 

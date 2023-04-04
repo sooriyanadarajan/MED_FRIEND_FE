@@ -4,6 +4,7 @@ import { SignupComponent } from './signup/signup.component'
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from '../authentication/forgot-password/forgot-password.component';
 import { GenerateotpComponent } from '../authentication/generateotp/generateotp.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,9 @@ const routes: Routes = [
   {
     path:'generate',
     component: GenerateotpComponent,
+  },{
+    path:'reset',
+    component: ResetpasswordComponent,
   }
 ];
 

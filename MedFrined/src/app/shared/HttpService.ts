@@ -21,6 +21,12 @@ export class HttpService {
   logIn(val:any) {
     return this.http.post(Constant.login, val);
   }
+  otp(val:any){
+    return this.http.post(Constant.otp, val)
+  }
+  verifyotp(val:any){
+    return this.http.post(Constant.verifyotp, val)
+  }
   logout(){
     return this.http.get(Constant.logout);
   }
