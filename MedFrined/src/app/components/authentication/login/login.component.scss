@@ -129,4 +129,117 @@ margin-right: 4px;
   text-decoration: underline;
   margin-left: 265px;
 }
+//responsive
+@media (min-width: 320px) and (max-width: 480px) {
+  .background .shape{
+      height: 100px;
+      width: 100px;
+      }
+      .shape:first-child{
+      left: 0px;
+      top: 0px;
+      }
+      .shape:last-child{
+      right: 0;
+      bottom: 0;
+      }
+      .background{
+       width: 100%;
+       padding: 0 20px;
+      }
+      .signup_tag{
+        margin-left: 0;
+        position: relative;
+        top: 10px;
+      }
+      form h3{
+          font-size: 24px;
+          }
+          form{
+              width: 100%;
+          }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .background .shape{
+      height: 120px;
+      width: 120px;
+      }
+      .shape:first-child{
+      left: -60px;
+      top: -60px;
+      }
+      .shape:last-child{
+      right: -60px;
+      bottom: -60px;
+      }
+      .background{
+          width: 400px;
+      }
+      .signup_tag{
+        margin-left: 0;
+        position: relative;
+        top: 10px;
+      }
+      form h3{
+          font-size: 24px;
+          }
+          form{
+              width: 400px;
+          }
+}
+@media (min-width: 768px) and (max-width: 1480px) {
+  .background .shape{
+      height: 120px;
+      width: 120px;
+      }
+      .shape:first-child{
+      left: -60px;
+      top: -60px;
+      }
+      .shape:last-child{
+      right: -60px;
+      bottom: -60px;
+      }
+      .background{
+          width: 400px;
+      }
+      .signup_tag{
+        margin-left: 0;
+        position: relative;
+        top: 10px;
+      }
+      form h3{
+          font-size: 24px;
+          }
+          form{
+              width: 400px;
+          }
+}
+@media (min-width: 1440px) and (max-width: 1880px){
+  .background .shape{
+      height: 120px;
+      width: 120px;
+      }
+      .shape:first-child{
+      left: -70px;
+      top: -70px;
+      }
+      .shape:last-child{
+      right: -70px;
+      bottom: -70px;
+      }
+      .background{
+          width: 400px;
+      }
+      .signup_tag{
+        position: relative;
+        top: 10px;
+      }
+      form h3{
+          font-size: 28px;
+          }
+          form{
+              width: 400px;
+          }
+}
 

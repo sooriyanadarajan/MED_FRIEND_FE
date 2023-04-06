@@ -1,9 +1,9 @@
 <div class="doctors_cards">
-  <div class="card">
+  <div class="card" *ngFor="let doctor of doctors">
     <img class="img_fix" src="../../../../assets/img/1678752724930.jpg" alt="Image">
     <div class="card-content">
-      <h3>Cardiologist</h3>
-      <p>Cardiology Consultation</p>
+      <h3>{{ doctor.username }}</h3>
+      <p>{{ doctor.email }}</p>
     </div>
     <a class="btn" (click)="showModal()">Book Appointment</a>
   </div>

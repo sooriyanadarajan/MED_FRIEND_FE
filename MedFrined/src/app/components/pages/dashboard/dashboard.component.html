@@ -18,19 +18,19 @@
           </div>
         </div>
         <div class="card2" >
-          <div class="card_text">
+          <div class="card_text" *ngIf="getappointmentdata">
             <h3 class="name_appointment">Upcoming Appointments</h3>
             <table class="table_margin">
               <thead>
                 <tr>
-                  <th>Column 1</th>
+                  <th>User Count</th>
                   <th>Column 2</th>
                   <th>Column 3</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Row 1, Column 1</td>
+                  <td>{{ getappointmentdata }}</td>
                   <td>Row 1, Column 2</td>
                   <td>Row 1, Column 3</td>
                 </tr>

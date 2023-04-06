@@ -10,11 +10,16 @@ export const Constant={
      otp:"http://localhost:7753/forgotPassword",
      //verifyotp
      verifyotp:"http://localhost:7753/verifyPassword",
+     //reset
+     reset:"http://localhost:7753/resetPassword",
      //logout
      logout:"http://localhost:7753/logOut",
-
+    //contactus
+    contactus:"http://localhost:7753/contactUs",
      //profile
      profile:"http://localhost:7753/getProfile",
+     //appointment
+     appointment:"http://localhost:7753/dashboard",
     //    //RecoverPassword
     //  recoverPassword:"http://localhost:4000/recover",
 

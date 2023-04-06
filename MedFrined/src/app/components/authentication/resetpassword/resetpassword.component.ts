@@ -15,27 +15,27 @@ export class ResetpasswordComponent {
   changepassowrd!: FormGroup;
   ngOnInit(): void {
     this.changepassowrd = new FormGroup({
-      email : new FormControl('',[ Validators.required,
-                                     Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
+      email : new FormControl('',[ Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
                                     ]), 
-                             
+      password: new FormControl('',[Validators.required]),
+      confirmpassword: new FormControl('',[Validators.required])                     
     })
   }
-  Generate() {
+  ChangePassword() {
     let val={
       email:this.changepassowrd.value.email,
+      password:this.changepassowrd.value.password,
+      confirmpassword:this.changepassowrd.value.confirmpassword
     }
   
-    this.http.otp(val).subscribe((res:any)=>{
+    this.http.resetpassword(val).subscribe((res:any)=>{
       if(res.success){
-        // this.auth.isLoggedIn=true;
         res['success'] && this.message.success(res['message']);
         this.changepassowrd.reset();
-        this.router.navigate(['/auth/forgot']);
+        this.router.navigate(['/auth/login']);
       }
 
       else{
-        // this.auth.isLoggedIn=false;
         this.router.navigate(['/auth/generate']);
       }
     },(error: { error: { message: string | TemplateRef<void>; }; }) => {

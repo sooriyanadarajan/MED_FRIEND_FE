@@ -86,12 +86,12 @@ export class DoctorappointmentComponent {
   public isSelected(time: string): boolean {
     return time === this.selectedTime;
   }
-  doctordata:any
+  doctors:any
   GetDoctor(){
     this.http.getdoctor().subscribe((res:any)=>{
       if(res.success){
-      this.doctordata= res['data'];
-      console.log(this.doctordata)
+      this.doctors= res['data'];
+      console.log(this.doctors)
       }
     })
   }

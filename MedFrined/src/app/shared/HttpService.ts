@@ -27,11 +27,20 @@ export class HttpService {
   verifyotp(val:any){
     return this.http.post(Constant.verifyotp, val)
   }
+  resetpassword(val:any){
+    return this.http.post(Constant.reset,val)
+  }
+  contact(val:any){
+    return this.http.post(Constant.contactus,val)
+  }
   logout(){
     return this.http.get(Constant.logout);
   }
   getprofile(){
     return this.http.get(Constant.profile);
+  }
+  getappointment(){
+    return this.http.get(Constant.appointment);
   }
   getdoctor(){
     return this.http.get(Constant.doctorDetails);

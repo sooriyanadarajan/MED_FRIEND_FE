@@ -11,15 +11,15 @@
            <h2 style="color:aliceblue">Contact Us</h2>
            <div class="card1">
                <div class="form-wrapper">
-                   <form class="prescription_form">
-                       <label for="username">Name</label>
-                       <input type="text" placeholder="" id="username">
-                       <label for="email">Email</label>
-                       <input type="email" placeholder="" id="email">
+                   <form class="prescription_form" [formGroup]="ContactForm">
+                       <label for="username">Email</label>
+                       <input type="text" placeholder="email" formControlName="email" id="username">
                        <label for="email">Phone</label>
-                       <input placeholder="" id="email">
+                       <input type="email" placeholder="phone" formControlName="phone" id="email">
+                       <label for="email">Name</label>
+                       <input placeholder="name" formControlName="name" id="email">
                        <label for="message">Message</label>
-                    <textarea id="message" name="message" class="form-control"></textarea>
+                    <textarea id="message" name="message" formControlName="message" class="form-control"></textarea>
                    </form>
                </div>
                <div class="image-select-wrapper">
@@ -46,7 +46,7 @@
                       </div>
                     </div>
                </div>
-               <button class="prescription_submit">Submit</button>
+               <button (click)="Contact()" class="prescription_submit">Submit</button>
            </div>
        </div>
    </body>
