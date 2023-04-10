@@ -1,6 +1,6 @@
 <div class="doctors_cards">
   <div class="card" *ngFor="let doctor of doctors">
-    <img class="img_fix" src="../../../../assets/img/1678752724930.jpg" alt="Image">
+    <img class="img_fix" src="{{ doctor.profile_image }}" alt="Image">
     <div class="card-content">
       <h3>{{ doctor.username }}</h3>
       <p>{{ doctor.email }}</p>
@@ -19,12 +19,20 @@
         <ng-container *nzModalContent>
           <div class="form-row">
             <div class="form-group col-md-6 ">
-              <nz-date-picker class="bookdate" formControlName="slot" format="mm/dd/yyyy"></nz-date-picker>
+              <input class="Patient_name" placeholder="Enter Your Name" formControlName="name" nz-input name="name" type="name" id="email">
+              <select class="slectdoctor"  formControlName="doctor_id">
+                <option *ngFor="let doctor of doctors" [value]="doctor._id">{{doctor.username}}</option>
+              </select>
+              <select class="slectpurpose"  formControlName="purpose_id">
+                <option *ngFor="let purpose of purposeofdoct" [value]="purpose._id">{{purpose.purpose}}</option>
+              </select>
+              <nz-date-picker class="bookdate" formControlName="date" format="mm/dd/yyyy"></nz-date-picker>
+              <input class="Patient_name" placeholder="Enter Your Time" formControlName="time" [value]="selectedTime ? selectedTime : 'Select Your Time'" nz-input name="name" type="name" id="email">
             </div>
             <div class="date_timemargin">
               <div class="time-picker">
                 <div class="time-picker-buttons">
-                  <button class="time-picker-button" *ngFor="let time of times" (click)="selectTime(time)"
+                  <button class="time-picker-button"  *ngFor="let time of times" (click)="selectTime(time)"
                     [class.selected]="isSelected(time)">
                     {{ time }}
                   </button>

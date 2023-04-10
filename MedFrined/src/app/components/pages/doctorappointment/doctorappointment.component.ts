@@ -18,8 +18,11 @@ export class DoctorappointmentComponent {
   constructor(private auth:AuthSerice,private http:HttpService,private formBuilder: FormBuilder,private router: Router,private message:NzMessageService) { 
     //slotbooking
   this.slotbooking = this.formBuilder.group({
-    
-    slot: new FormControl('', [Validators.required])
+    name: new FormControl('',Validators.required),
+    date: new FormControl('', [Validators.required]),
+    time: new FormControl(this.selectedTime,Validators.required),
+    doctor_id: new FormControl('',Validators.required),
+    purpose_id: new FormControl('',Validators.required),
   });
   }
   
@@ -34,6 +37,7 @@ export class DoctorappointmentComponent {
   
   ngOnInit(): void {
     this.GetDoctor();
+    this.GetPurpose();
     // Manually trigger a change event on the time picker to fix the default minutes value issue
     if (this.timePicker) {
       this.timePicker.writeValue(this.selectedTime);
@@ -79,9 +83,19 @@ export class DoctorappointmentComponent {
     '4:00 PM',
   ];
 
+  // public selectTime(time: string): void {
+  //   this.selectedTime = time;
+  //   this.slotbooking.get('time').setValue(time);
+  // }
   public selectTime(time: string): void {
     this.selectedTime = time;
+    const timeControl = this.slotbooking.get('time');
+    if (timeControl) {
+      timeControl.setValue(time);
+    }
   }
+  
+  
 
   public isSelected(time: string): boolean {
     return time === this.selectedTime;
@@ -95,28 +109,38 @@ export class DoctorappointmentComponent {
       }
     })
   }
+  purposeofdoct:any
+  GetPurpose(){
+    this.http.purpose().subscribe((res:any)=>{
+      if(res.success){
+      this.purposeofdoct= res['data'];
+      console.log(this.purposeofdoct)
+      }
+    })
+  }
   SubitSlot(){
     let val={
-      slot:this.slotbooking.value.slot,
+      name:this.slotbooking.value.name,
+      date:this.slotbooking.value.date,
+      time:this.slotbooking.value.time,
+      doctor_id: this.slotbooking.value.doctor_id,
+      purpose_id: this.slotbooking.value.purpose_id,
     }
     console.log(this.slotbooking)
     this.http.slotbook(val).subscribe((res:any)=>{
       if(res.success){
-        console.log(this.slotbooking)
-        // this.auth.isLoggedIn=true;
-        // this.router.navigate(['/dashboard']);
-        // res['success'] && this.message.success(res['message']);
+        res['success'] && this.message.success(res['message']);
+        this.isVisible = false;
         this.slotbooking.reset();
       }
       else{
-        // this.auth.isLoggedIn=false;
-        // this.router.navigate(['/auth/login']);
-        console.log(this.slotbooking)
+        // console.log(this.slotbooking)
+        this.isVisible = true;
       }
     },(error: { error: { message: string | TemplateRef<void>; }; }) => {
       this.message.error(error.error.message);
     });
-    console.log(this.slotbooking)
+    // console.log(this.slotbooking)
   }
  
 }

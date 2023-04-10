@@ -15,6 +15,7 @@ export class DashboardComponent {
   ngOnInit(): void {
     this.profile();
     this.appointmenthistory();
+    this.appointmentlist();
   }
   getname:any
   getappointmentdata=0;
@@ -34,5 +35,24 @@ export class DashboardComponent {
       }
     })
   }
+  // Initialize the array with an empty array
+appointmenhis: any[] = [];
+  appointmentlist() {
+    this.http.appointmentlist().subscribe((res:any) => {
+      if(res.success) {
+        if(Array.isArray(res.data)) {
+          this.appointmenhis = res.data;
+        } else {
+          console.error('Data is not an array:', res.data);
+        }
+      } else {
+        console.error('API error:', res.message);
+      }
+    }, err => {
+      console.error('HTTP error:', err);
+    });
+  }
+  
+  
   
 }

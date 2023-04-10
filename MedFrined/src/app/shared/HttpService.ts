@@ -48,6 +48,12 @@ export class HttpService {
   slotbook(val:any){
     return this.http.post(Constant.slot, val);
   }
+  purpose(){
+    return this.http.get(Constant.doctpurpose);
+  }
+  appointmentlist(){
+    return this.http.get(Constant.appointmentlist);
+  }
 //   recoverPassword(val: any) {
 //     return this.http.post(Constant.recoverPassword, val);
 //   }

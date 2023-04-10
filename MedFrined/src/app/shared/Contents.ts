@@ -20,6 +20,8 @@ export const Constant={
      profile:"http://localhost:7753/getProfile",
      //appointment
      appointment:"http://localhost:7753/dashboard",
+     //doctpurpose
+     doctpurpose:"http://localhost:7753/purpose/list",
     //    //RecoverPassword
     //  recoverPassword:"http://localhost:4000/recover",
 
@@ -27,5 +29,6 @@ export const Constant={
     //  resetPassword:"http://localhost:4000/passwordReset/",
 
      doctorDetails:"http://localhost:7753/doctor/list",
-     slot:"http://localhost:7753/slotbook"
+     slot:"http://localhost:7753/appointment/create",
+     appointmentlist:"http://localhost:7753/appointment/list",
 } 
