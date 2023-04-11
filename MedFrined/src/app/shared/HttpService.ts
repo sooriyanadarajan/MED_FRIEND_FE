@@ -54,6 +54,12 @@ export class HttpService {
   appointmentlist(){
     return this.http.get(Constant.appointmentlist);
   }
+  updateprofile(val:any){
+    return this.http.post(Constant.profileupdate, val);
+  }
+  updatepres(val:any){
+    return this.http.post(Constant.uploadpres, val);
+  }
 //   recoverPassword(val: any) {
 //     return this.http.post(Constant.recoverPassword, val);
 //   }

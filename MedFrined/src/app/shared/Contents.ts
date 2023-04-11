@@ -31,4 +31,6 @@ export const Constant={
      doctorDetails:"http://localhost:7753/doctor/list",
      slot:"http://localhost:7753/appointment/create",
      appointmentlist:"http://localhost:7753/appointment/list",
+     profileupdate:"http://localhost:7753/updateProfile",
+     uploadpres:"http://localhost:7753/prescription",
 } 

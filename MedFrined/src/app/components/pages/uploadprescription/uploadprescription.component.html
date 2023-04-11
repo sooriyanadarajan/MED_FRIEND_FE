@@ -9,15 +9,15 @@
         <h2 style="color:aliceblue">Upload Prescription</h2>
         <div class="card1">
             <div class="form-wrapper">
-                <form class="prescription_form">
+                <form class="prescription_form" [formGroup]="uploadpres">
                     <label for="username">First Name</label>
-                    <input type="text" placeholder="" id="username">
+                    <input type="text" formControlName="firstname" placeholder="" id="username">
                     <label for="username">Last Name</label>
-                    <input type="text" placeholder="" id="username">
+                    <input type="text" formControlName="lastname" placeholder="" id="username">
                     <label for="email">Email</label>
-                    <input type="email" placeholder="" id="email">
+                    <input type="email"  formControlName="email" placeholder="" id="email">
                     <label for="email">Phone</label>
-                    <input placeholder="" id="email">
+                    <input placeholder="" formControlName="mobileno" id="number">
                 </form>
             </div>
             <div class="image-select-wrapper">
@@ -32,7 +32,7 @@
                 </div>
                 <button *ngIf="imageUrl" class="remove-image" (click)="removeImage()">X</button>
             </div>
-            <button class="prescription_submit">Submit</button>
+            <button class="prescription_submit" (click)="SubmitPres()">Submit</button>
         </div>
     </div>
 </body>
